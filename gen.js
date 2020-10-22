@@ -14,18 +14,30 @@ const acceptable = Object.fromEntries(`
 han !h
 explore shared Korean & Japanese vocabulary
 
-; sche !h
+;sche !h
 make a block schedule
 
-; vsus
+;vsus
 
 ;phll ;plll
-;bbs ;poof
-;s-straight ;h-seee
-;disc ;sjjj ;yoat
+
+;bbs
+
+;poof
+stores files in sqlite database
+
+;s-straight
+
+;h-seee
+API abuse
+
+;disc
+uses now-obsolete Deno ws
+
+;sjjj ;yoat
 ;sett ;prrr ;cntp ;weeblayouttool
 
-;hywn ;resume
+;resume
 
 ;Scorebook ;simple-Yelp ;ACS ; PotatoBird ;RockPaperScissors
 
