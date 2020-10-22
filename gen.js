@@ -65,18 +65,21 @@ console.log(
 	'<table>' +
 	`<tr><th rowspan='2'>project</th><th>language</th><th>description</th></tr>
 	<tr><th colspan='2'>notes?</th></tr>` +
-		Object.entries(acceptable)
-			.map(([name, { description: extra, f_homepage }]) => {
-				const { html_url, homepage, language, description } = all[name]
-				const cols = [ `<a href='${html_url}'>${name}</a>` + (f_homepage ? ` (<a href='${homepage}'>site</a>)` : '')
-				             , language
-				             , description || ''
-				             ]
-				const first = extra ? `<td rowspan='2'>${cols.shift()}</td>` : ''
-				const rest = cols.map(td).join('')
-				const note = extra ? `<td colspan='2' align='center'>${extra}</td>` : ''
-				return tr(`${first}${rest}</tr>${note ? tr(note) : ''}`)
-			}
-		).join('\n')
+	Object.entries(acceptable).map(([name, { description: extra, f_homepage }]) => {
+
+		const { html_url, homepage, language, description } = all[name]
+
+		const cols = [ `<a href='${html_url}'>${name}</a>` + (f_homepage ? ` (<a href='${homepage}'>site</a>)` : '')
+		             , language
+		             , description || ''
+		             ]
+
+		const first = extra ? `<td rowspan='2'>${cols.shift()}</td>` : ''
+		const rest = cols.map(td).join('')
+		const note = extra ? `<td colspan='2' align='center'>${extra}</td>` : ''
+
+		return tr(`${first}${rest}</tr>${note ? tr(note) : ''}`)
+
+	}).join('\n')
 	+ '</table>'
 )
