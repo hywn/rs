@@ -49,9 +49,11 @@ uses now-obsolete Deno ws
 const style = `<style>
 html { display: flex; flex-direction: column; justify-content: center; align-items: center }
 body { 45em; margin: 5em }
-table { width: 100% }
-td, th { border: outset; padding: 0.2em }
+table { width: 100%; border-collapse: collapse }
+td, th { border: solid #bbb; padding: 0.25em }
 
+.colored { background-color: #eee }
+.note { color: #888; text-align: center }
 </style>`
 
 const intro = `
@@ -64,19 +66,19 @@ console.log(
 	intro +
 	'<table>' +
 	`<tr><th rowspan='2'>project</th><th>language</th><th>description</th></tr>
-	<tr><th colspan='2'>notes?</th></tr>` +
-	Object.entries(acceptable).map(([name, { description: extra, f_homepage }]) => {
+	<tr><th class='note' colspan='2'>notes?</th></tr>` +
+	Object.entries(acceptable).map(([name, { description: extra, f_homepage }], i) => {
 
+		const even = !(i % 2)
 		const { html_url, homepage, language, description } = all[name]
-
 		const cols = [ `<a href='${html_url}'>${name}</a>` + (f_homepage ? ` (<a href='${homepage}'>site</a>)` : '')
 		             , language
 		             , description || ''
 		             ]
 
-		const first = extra ? `<td rowspan='2'>${cols.shift()}</td>` : ''
-		const rest = cols.map(td).join('')
-		const note = extra ? `<td colspan='2' align='center'>${extra}</td>` : ''
+		const first = extra ? `<td ${even ? "class='colored' " : ''}rowspan='2'>${cols.shift()}</td>` : ''
+		const rest = cols.map(x => `<td${even ? " class='colored'" : ''}>${x}</td>`).join('')
+		const note = extra ? `<td class='${even ? 'colored ' : ''}note' colspan='2'>${extra}</td>` : ''
 
 		return tr(`${first}${rest}</tr>${note ? tr(note) : ''}`)
 
