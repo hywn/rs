@@ -12,10 +12,8 @@ const tr = tag('tr')
 
 const acceptable = Object.fromEntries(`
 han !h
-explore shared Korean & Japanese vocabulary
 
 ;sche !h
-make a block schedule
 
 ;vsus
 
@@ -26,12 +24,10 @@ make a block schedule
 ;bbs
 
 ;poof
-stores files in sqlite database
 
 ;s-straight
 
 ;h-seee
-API abuse
 
 ;disc
 uses now-obsolete Deno ws
