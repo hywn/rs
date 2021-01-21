@@ -44,46 +44,70 @@ uses now-obsolete Deno ws
 ;Scorebook ;simple-Yelp ;ACS ; PotatoBird ;RockPaperScissors
 
 `.split(';').map(chunk => {
-	const [, name, flags, description] = chunk.trim().match(/(\S+)( +!.+)?\n*(.+)?/)
-	return [name, { description, f_homepage: (flags || '').includes('h') }]
+	const [, name, flags, note] = chunk.trim().match(/(\S+)( +!.+)?\n*(.+)?/)
+	return [name, { note, f_homepage: (flags || '').includes('h') }]
 }))
 
 const style = `<style>
-html { display: flex; flex-direction: column; justify-content: center; align-items: center }
-body { 45em; margin: 5em }
-table { width: 100%; border-collapse: collapse }
-td, th { border: solid #bbb; padding: 0.25em }
-
-.colored { background-color: #eee }
-.note { color: #888; text-align: center }
+html
+	{ display: flex
+	; justify-content: center
+	}
+body
+	{ display: grid
+	; grid-template-columns: repeat(4, 7em)
+	; grid-template-rows:    repeat(${1 + Math.ceil(Object.keys(acceptable).length / 2)}, 7em)
+	; grid-gap: 1.2em
+	; width: min-content
+	; height: min-content
+	; margin: 4em
+	; line-height: 1.6
+	}
+#intro
+	{ display: flex
+	; flex-direction: column
+	; grid-column-end: span 4
+	}
+h1 { margin: 0; font-size: 2.8em }
+p  { margin: 0 }
+.project
+	{ display: flex
+	; flex-direction: column
+	; grid-column-end: span 2
+	}
+.links
+	{ font-size: 1.2em
+	; font-weight: bold
+	}
+.language
+	{ font-size: 0.8em
+	; font-style: italic
+	}
+.note
+	{ font-size: 0.9em
+	; font-style: italic
+	; color: #777
+	}
 </style>`
 
-const intro = `
+const intro = `<div id=intro>
 <h1>project index</h1>
 <p>incomprehensive list of project repositories</p>
-`
+</div>`
 
 console.log(
 	style +
 	intro +
-	'<table>' +
-	`<tr><th rowspan='2'>project</th><th>language</th><th>description</th></tr>
-	<tr><th class='note' colspan='2'>notes?</th></tr>` +
-	Object.entries(acceptable).map(([name, { description: extra, f_homepage }], i) => {
+	Object.entries(acceptable).map(([name, { f_homepage, note }]) => {
 
-		const even = !(i % 2)
 		const { html_url, homepage, language, description } = all[name]
-		const cols = [ `<a href='${html_url}'>${name}</a>` + (f_homepage ? ` (<a href='${homepage}'>site</a>)` : '')
-		             , language
-		             , description || ''
-		             ]
 
-		const first = extra ? `<td ${even ? "class='colored' " : ''}rowspan='2'>${cols.shift()}</td>` : ''
-		const rest = cols.map(x => `<td${even ? " class='colored'" : ''}>${x}</td>`).join('')
-		const note = extra ? `<td class='${even ? 'colored ' : ''}note' colspan='2'>${extra}</td>` : ''
+		return `<div class=project>
+			<span class=links><a href='${html_url}'>${name}</a>${!f_homepage ? '' : ` (<a href='${homepage}'>site</a>)`}</span>
+			<span class=language>${language}</span>
+			<span class=description>${description || ''}</span>
+			${!note ? '' : `<span class=note>${note}</span>`}
+		</div>`
 
-		return tr(`${first}${rest}</tr>${note ? tr(note) : ''}`)
-
-	}).join('\n')
-	+ '</table>'
+	}).join('\n').replace(/[\n\t]/g, '')
 )

@@ -1,37 +1,44 @@
 <style>
-html { display: flex; flex-direction: column; justify-content: center; align-items: center }
-body { 45em; margin: 5em }
-table { width: 100%; border-collapse: collapse }
-td, th { border: solid #bbb; padding: 0.25em }
-
-.colored { background-color: #eee }
-.note { color: #888; text-align: center }
-</style>
+html
+	{ display: flex
+	; justify-content: center
+	}
+body
+	{ display: grid
+	; grid-template-columns: repeat(4, 7em)
+	; grid-template-rows:    repeat(14, 7em)
+	; grid-gap: 1.2em
+	; width: min-content
+	; height: min-content
+	; margin: 4em
+	; line-height: 1.6
+	}
+#intro
+	{ display: flex
+	; flex-direction: column
+	; grid-column-end: span 4
+	}
+h1 { margin: 0; font-size: 2.8em }
+p  { margin: 0 }
+.project
+	{ display: flex
+	; flex-direction: column
+	; grid-column-end: span 2
+	}
+.links
+	{ font-size: 1.2em
+	; font-weight: bold
+	}
+.language
+	{ font-size: 0.8em
+	; font-style: italic
+	}
+.note
+	{ font-size: 0.9em
+	; font-style: italic
+	; color: #777
+	}
+</style><div id=intro>
 <h1>project index</h1>
 <p>incomprehensive list of project repositories</p>
-<table><tr><th rowspan='2'>project</th><th>language</th><th>description</th></tr>
-	<tr><th class='note' colspan='2'>notes?</th></tr><tr><td class='colored'><a href='https://github.com/hywn/han'>han</a> (<a href='https://hywn.github.io/han/'>site</a>)</td><td class='colored'>Ruby</td><td class='colored'>adventures in hanzi!</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/sche'>sche</a> (<a href='https://hywn.github.io/sche/'>site</a>)</td><td>HTML</td><td>scheduling tools</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/vsus'>vsus</a></td><td class='colored'>JavaScript</td><td class='colored'>get vlive subs</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/zoop'>zoop</a></td><td>HTML</td><td>all-in-one quick text tool</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/lihh'>lihh</a></td><td class='colored'>Haskell</td><td class='colored'>lambda calculus (toy) language in Haskell</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/phll'>phll</a></td><td>Haskell</td><td>haskell png encoder</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/plll'>plll</a></td><td class='colored'>JavaScript</td><td class='colored'>javascript png encoder</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/copp'>copp</a></td><td>JavaScript</td><td>toy assembler and bytecode interpreter</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/bbs'>bbs</a></td><td class='colored'>PHP</td><td class='colored'>bbs</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/poof'>poof</a></td><td>HTML</td><td>pomflike with sqlite+php</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/s-straight'>s-straight</a></td><td class='colored'>JavaScript</td><td class='colored'>compile? boolean expressions to 'AON straightline'</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/h-seee'>h-seee</a></td><td>JavaScript</td><td>capital one hackathon API abuse</td></tr></tr>
-<tr><td class='colored' rowspan='2'><a href='https://github.com/hywn/disc'>disc</a></td><td class='colored'>JavaScript</td><td class='colored'>lightweight Discord API wrapper</td></tr><tr><td class='colored note' colspan='2'>uses now-obsolete Deno ws</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/sjjj'>sjjj</a></td><td>JavaScript</td><td>send emails</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/yoat'>yoat</a></td><td class='colored'>JavaScript</td><td class='colored'>gets valid audio stream URLs from youtube IDs</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/sett'>sett</a></td><td>HTML</td><td>browser crossfading experiment</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/prrr'>prrr</a></td><td class='colored'>Ruby</td><td class='colored'>prrr</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/cntp'>cntp</a></td><td>JavaScript</td><td>chrome custom newtab plugin</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/weeblayouttool'>weeblayouttool</a></td><td class='colored'>Java</td><td class='colored'>tool for making image layouts</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/resume'>resume</a></td><td>HTML</td><td>my resume</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/Scorebook'>Scorebook</a></td><td class='colored'>Java</td><td class='colored'>record athlete scores</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/simple-Yelp'>simple-Yelp</a></td><td>HTML</td><td>A simple Yelp interface</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/ACS'>ACS</a></td><td class='colored'>Java</td><td class='colored'>AP Computer Science</td></tr></tr>
-<tr><td><a href='https://github.com/hywn/PotatoBird'>PotatoBird</a></td><td>Java</td><td>flap</td></tr></tr>
-<tr><td class='colored'><a href='https://github.com/hywn/RockPaperScissors'>RockPaperScissors</a></td><td class='colored'>Java</td><td class='colored'></td></tr></tr></table>
+</div><div class=project><span class=links><a href='https://github.com/hywn/han'>han</a> (<a href='https://hywn.github.io/han/'>site</a>)</span><span class=language>Ruby</span><span class=description>adventures in hanzi!</span></div><div class=project><span class=links><a href='https://github.com/hywn/sche'>sche</a> (<a href='https://hywn.github.io/sche/'>site</a>)</span><span class=language>HTML</span><span class=description>scheduling tools</span></div><div class=project><span class=links><a href='https://github.com/hywn/vsus'>vsus</a></span><span class=language>JavaScript</span><span class=description>get vlive subs</span></div><div class=project><span class=links><a href='https://github.com/hywn/zoop'>zoop</a></span><span class=language>HTML</span><span class=description>all-in-one quick text tool</span></div><div class=project><span class=links><a href='https://github.com/hywn/lihh'>lihh</a></span><span class=language>Haskell</span><span class=description>lambda calculus (toy) language in Haskell</span></div><div class=project><span class=links><a href='https://github.com/hywn/phll'>phll</a></span><span class=language>Haskell</span><span class=description>haskell png encoder</span></div><div class=project><span class=links><a href='https://github.com/hywn/plll'>plll</a></span><span class=language>JavaScript</span><span class=description>javascript png encoder</span></div><div class=project><span class=links><a href='https://github.com/hywn/copp'>copp</a></span><span class=language>JavaScript</span><span class=description>toy assembler and bytecode interpreter</span></div><div class=project><span class=links><a href='https://github.com/hywn/bbs'>bbs</a></span><span class=language>PHP</span><span class=description>bbs</span></div><div class=project><span class=links><a href='https://github.com/hywn/poof'>poof</a></span><span class=language>HTML</span><span class=description>pomflike with sqlite+php</span></div><div class=project><span class=links><a href='https://github.com/hywn/s-straight'>s-straight</a></span><span class=language>JavaScript</span><span class=description>compile? boolean expressions to 'AON straightline'</span></div><div class=project><span class=links><a href='https://github.com/hywn/h-seee'>h-seee</a></span><span class=language>JavaScript</span><span class=description>capital one hackathon API abuse</span></div><div class=project><span class=links><a href='https://github.com/hywn/disc'>disc</a></span><span class=language>JavaScript</span><span class=description>lightweight Discord API wrapper</span><span class=note>uses now-obsolete Deno ws</span></div><div class=project><span class=links><a href='https://github.com/hywn/sjjj'>sjjj</a></span><span class=language>JavaScript</span><span class=description>send emails</span></div><div class=project><span class=links><a href='https://github.com/hywn/yoat'>yoat</a></span><span class=language>JavaScript</span><span class=description>gets valid audio stream URLs from youtube IDs</span></div><div class=project><span class=links><a href='https://github.com/hywn/sett'>sett</a></span><span class=language>HTML</span><span class=description>browser crossfading experiment</span></div><div class=project><span class=links><a href='https://github.com/hywn/prrr'>prrr</a></span><span class=language>Ruby</span><span class=description>prrr</span></div><div class=project><span class=links><a href='https://github.com/hywn/cntp'>cntp</a></span><span class=language>JavaScript</span><span class=description>chrome custom newtab plugin</span></div><div class=project><span class=links><a href='https://github.com/hywn/weeblayouttool'>weeblayouttool</a></span><span class=language>Java</span><span class=description>tool for making image layouts</span></div><div class=project><span class=links><a href='https://github.com/hywn/resume'>resume</a></span><span class=language>HTML</span><span class=description>my resume</span></div><div class=project><span class=links><a href='https://github.com/hywn/Scorebook'>Scorebook</a></span><span class=language>Java</span><span class=description>record athlete scores</span></div><div class=project><span class=links><a href='https://github.com/hywn/simple-Yelp'>simple-Yelp</a></span><span class=language>HTML</span><span class=description>A simple Yelp interface</span></div><div class=project><span class=links><a href='https://github.com/hywn/ACS'>ACS</a></span><span class=language>Java</span><span class=description>AP Computer Science</span></div><div class=project><span class=links><a href='https://github.com/hywn/PotatoBird'>PotatoBird</a></span><span class=language>Java</span><span class=description>flap</span></div><div class=project><span class=links><a href='https://github.com/hywn/RockPaperScissors'>RockPaperScissors</a></span><span class=language>Java</span><span class=description></span></div>
