@@ -48,55 +48,13 @@ uses now-obsolete Deno ws
 	return [name, { note, f_homepage: (flags || '').includes('h') }]
 }))
 
-const style = `<style>
-html
-	{ display: flex
-	; justify-content: center
-	}
-body
-	{ display: grid
-	; grid-template-columns: repeat(4, 7em)
-	; grid-template-rows:    repeat(${1 + Math.ceil(Object.keys(acceptable).length / 2)}, 7em)
-	; grid-gap: 1.2em
-	; width: min-content
-	; height: min-content
-	; margin: 4em
-	; line-height: 1.6
-	}
-#intro
-	{ display: flex
-	; flex-direction: column
-	; grid-column-end: span 4
-	}
-h1 { margin: 0; font-size: 2.8em }
-p  { margin: 0 }
-.project
-	{ display: flex
-	; flex-direction: column
-	; grid-column-end: span 2
-	}
-.links
-	{ font-size: 1.2em
-	; font-weight: bold
-	}
-.language
-	{ font-size: 0.8em
-	; font-style: italic
-	}
-.note
-	{ font-size: 0.9em
-	; font-style: italic
-	; color: #777
-	}
-</style>`
-
 const intro = `<div id=intro>
 <h1>project index</h1>
 <p>incomprehensive list of project repositories</p>
 </div>`
 
 console.log(
-	style +
+	`<meta name=viewport content='width=device-width, initial-scale=1'><link rel=stylesheet href=style.css>` +
 	intro +
 	Object.entries(acceptable).map(([name, { f_homepage, note }]) => {
 

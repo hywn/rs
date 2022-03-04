@@ -1,0 +1,44 @@
+
+body
+	{ display: grid
+	; grid-template-columns: repeat(4, 7em)
+	; grid-auto-rows: 7em
+	; grid-gap: 1.2em
+	; width: min-content
+	; margin: 4em auto 4em auto
+	; line-height: 1.6
+	}
+#intro
+	{ display: flex
+	; flex-direction: column
+	; justify-content: center
+	; grid-column-end: span 4
+	}
+h1 { margin: 0; font-size: 3.2rem; line-height: 3.2rem; margin-bottom: 0.2rem }
+p  { margin: 0 }
+.project
+	{ display: flex
+	; flex-direction: column
+	; grid-column-end: span 2
+	}
+.links
+	{ font-size: 1.2em
+	; font-weight: bold
+	}
+.language
+	{ font-size: 0.8em
+	; font-style: italic
+	}
+.note
+	{ font-size: 0.9em
+	; font-style: italic
+	; color: #777
+	}
+@media (max-width: 560px) {
+	body
+		{ grid-template-columns: 7em 7em
+		; gap: 0.8rem
+		; margin: 1.2rem auto 1.2rem auto
+		}
+	#intro { grid-column-end: span 2; grid-row-end: span 2 }
+}
