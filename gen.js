@@ -11,13 +11,9 @@ const td = tag('td')
 const tr = tag('tr')
 
 const acceptable = Object.fromEntries(`
-han !h
+sche !h
 
-;sche !h
-
-;vsus
-
-;zoop
+;han !h
 
 ;lihh
 
@@ -26,6 +22,10 @@ han !h
 ;copp
 
 ;bbs
+
+;vsus
+
+;zoop
 
 ;poof
 
