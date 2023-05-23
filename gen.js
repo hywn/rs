@@ -15,6 +15,12 @@ sche !h
 
 ;han !h
 
+;hoo-menu-local
+
+;igsb-multisearch
+
+;simple-Yelp
+
 ;lihh
 
 ;phll ;plll
@@ -39,9 +45,9 @@ uses now-obsolete Deno ws
 ;sjjj ;yoat
 ;sett ;prrr ;cntp ;weeblayouttool
 
-;resume
+;resume; resume-sellout; desperation-resume
 
-;Scorebook ;simple-Yelp ;ACS ; PotatoBird ;RockPaperScissors
+;Scorebook ;ACS ; PotatoBird ;RockPaperScissors
 
 `.split(';').map(chunk => {
 	const [, name, flags, note] = chunk.trim().match(/(\S+)( +!.+)?\n*(.+)?/)
@@ -54,7 +60,7 @@ const intro = `<div id=intro>
 </div>`
 
 console.log(
-	`<meta name=viewport content='width=device-width, initial-scale=1'><link rel=stylesheet href=style.css>` +
+	`<meta name=viewport content='width=device-width, initial-scale=1'><title>project index</title><link rel=stylesheet href=style.css>` +
 	intro +
 	Object.entries(acceptable).map(([name, { f_homepage, note }]) => {
 
